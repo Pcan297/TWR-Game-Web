@@ -16,7 +16,7 @@
             <!-- Add other themes here -->
 
         </select>
-        <button onclick="importCSV()">Import from .csv</button>
+        <input type="file" id="csvFileInput" accept=".csv" onchange="importCSV(event)">
         <button onclick="exportCSV()">Export as .csv</button>
     </div>
     <form id="fragmentsForm">
@@ -26,8 +26,10 @@
             <!-- Generate input fields dynamically with JavaScript -->
              <input type="text">
         </div>
+       
         <button type="button" onclick="createGame()">Create Game</button>
     </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
     <script src="fragmentgamejava.js"></script>
 </body>
 </html>

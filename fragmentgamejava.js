@@ -16,8 +16,29 @@ for (let i = 0; i < numPairs; i++) {
     gridContainer.appendChild(predicateInput);
 }
 
-function importCSV() {
-    // Implement CSV import functionality
+function importCSV(e) {
+    const file = e.target.files[0];
+    if (file) {
+        Papa.parse(file, {
+            complete: function(results) {
+                console.log(results.data)
+                populateFields(results.data);
+            }
+        });
+    }
+}
+
+function populateFields(data) {
+    // Assuming the CSV file has two columns: Subject and Predicate
+    for (let i = 0; i < data.length && i < numPairs; i++) {
+        const subjectField = document.querySelector(`input[name="subject${i + 1}"]`);
+        const predicateField = document.querySelector(`input[name="predicate${i + 1}"]`);
+        
+        if (subjectField && predicateField) {
+            subjectField.value = data[i][0]; // First column for Subject
+            predicateField.value = data[i][1]; // Second column for Predicate
+        }
+    }
 }
 
 function exportCSV() {
