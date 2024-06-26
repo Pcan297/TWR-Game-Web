@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fragments Game</title>
+    <link rel="stylesheet" href="fragmentgamec.css">
+</head>
+<body>
+    <h1>Fragments Game</h1>
+    <p>Create your game by adding custom subjects and predicates below or choose a preset theme from the dropdown.</p>
+    <div>
+        <label for="gameTheme">Game Theme</label>
+        <select id="gameTheme">
+            <option value="custom">Custom</option>
+            <!-- Add other themes here -->
+        </select>
+        <button onclick="importCSV()">Import from .csv</button>
+        <button onclick="exportCSV()">Export as .csv</button>
+    </div>
+    <form id="fragmentsForm">
+        <div class="grid-container">
+            <div>Subject</div>
+            <div>Predicate</div>
+            <!-- Generate input fields dynamically with JavaScript -->
+        </div>
+        <button type="button" onclick="createGame()">Create Game</button>
+    </form>
+    <script src="fragmentgamejava.js"></script>
+</body>
+</html>
